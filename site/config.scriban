@@ -94,6 +94,7 @@ with api.dotnet
         { assembly: "Avalonia.MicroCom", url: "https://api-docs.avaloniaui.net/docs" },
         { assembly: "Avalonia.OpenGL", url: "https://api-docs.avaloniaui.net/docs" },
         { assembly: "Avalonia.Remote.Protocol", url: "https://api-docs.avaloniaui.net/docs" },
-        { assembly: "Avalonia.Skia", url: "https://api-docs.avaloniaui.net/docs" }
+        { assembly: "Avalonia.Skia", url: "https://api-docs.avaloniaui.net/docs" },
+        { assembly: "SkiaSharp", url: "https://learn.microsoft.com/en-us/dotnet/api" }
     ]
 end
