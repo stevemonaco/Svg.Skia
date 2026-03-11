@@ -1,8 +1,12 @@
 using System;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Headless.XUnit;
+using Avalonia.Interactivity;
+using Svg;
 using Svg.Editor.Avalonia;
 using Svg.Editor.Skia.Avalonia;
 using Xunit;
@@ -44,6 +48,44 @@ public class SvgEditorWorkspaceTests
             Assert.Equal(path, workspace.CurrentFile);
             Assert.NotEmpty(workspace.Session.Nodes);
             Assert.Contains(Path.GetFileName(path), workspace.WorkspaceTitle, StringComparison.Ordinal);
+
+            host.Close();
+        }
+        finally
+        {
+            if (File.Exists(path))
+                File.Delete(path);
+        }
+    }
+
+    [AvaloniaFact]
+    public void SvgEditorWorkspace_NewMenuItem_PreservesUndoHistory()
+    {
+        const string svg = "<svg width=\"24\" height=\"24\"><rect id=\"rect1\" x=\"1\" y=\"1\" width=\"10\" height=\"10\" fill=\"red\" /></svg>";
+        var path = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid():N}.svg");
+        File.WriteAllText(path, svg);
+
+        try
+        {
+            var workspace = new SvgEditorWorkspace();
+            var host = new Window
+            {
+                Width = 1024,
+                Height = 768,
+                Content = workspace
+            };
+
+            host.Show();
+            workspace.LoadDocument(path);
+
+            InvokePrivateMenuHandler(workspace, "NewMenuItem_Click");
+
+            Assert.True(workspace.Session.UndoCount > 0);
+
+            InvokePrivateMenuHandler(workspace, "UndoMenuItem_Click");
+
+            Assert.NotNull(workspace.Document);
+            Assert.Contains(workspace.Document!.Children.OfType<SvgRectangle>(), element => element.ID == "rect1");
 
             host.Close();
         }
@@ -112,5 +154,12 @@ public class SvgEditorWorkspaceTests
 
         public Task<string?> OpenImageAsync(TopLevel? owner)
             => Task.FromResult<string?>(null);
+    }
+
+    private static void InvokePrivateMenuHandler(SvgEditorWorkspace workspace, string methodName)
+    {
+        var method = typeof(SvgEditorWorkspace).GetMethod(methodName, BindingFlags.Instance | BindingFlags.NonPublic);
+        Assert.NotNull(method);
+        method!.Invoke(workspace, new object?[] { null, new RoutedEventArgs() });
     }
 }

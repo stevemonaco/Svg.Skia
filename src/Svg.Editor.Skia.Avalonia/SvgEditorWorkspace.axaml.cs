@@ -2339,7 +2339,6 @@ public partial class SvgEditorWorkspace : UserControl
         SvgView.SkSvg!.FromSvgDocument(_document);
         SaveExpandedNodes();
         Session.CurrentFile = null;
-        Session.ClearHistory();
         Session.ClearClipboard();
         Session.SetSelectedElementIds(Array.Empty<string>());
         UpdateTitle();
