@@ -7,5 +7,10 @@ packages:
   - {path: svg-controls-skia-avalonia.md, title: "Svg.Controls.Skia.Avalonia"}
   - {path: svg-controls-avalonia.md, title: "Svg.Controls.Avalonia"}
   - {path: skia-controls-avalonia.md, title: "Skia.Controls.Avalonia"}
+  - {path: svg-editor-core.md, title: "Svg.Editor.Core"}
+  - {path: svg-editor-svg.md, title: "Svg.Editor.Svg"}
+  - {path: svg-editor-skia.md, title: "Svg.Editor.Skia"}
+  - {path: svg-editor-avalonia.md, title: "Svg.Editor.Avalonia"}
+  - {path: svg-editor-skia-avalonia.md, title: "Svg.Editor.Skia.Avalonia"}
   - {path: svg-codegen-skia.md, title: "Svg.CodeGen.Skia"}
   - {path: svg-sourcegenerator-skia.md, title: "Svg.SourceGenerator.Skia"}

@@ -18,6 +18,14 @@ Svg.Skia is composed of several layers that can be used independently or togethe
 - `Svg.Controls.Avalonia` exposes a similar API surface but renders through the Avalonia drawing model.
 - `Skia.Controls.Avalonia` provides reusable general-purpose Skia controls such as `SKCanvasControl`, `SKPictureControl`, and `SKPictureImage`.
 
+## Editor composition path
+
+- `Svg.Editor.Core` carries shared editor session state and history.
+- `Svg.Editor.Svg` carries document mutation, properties, layers, patterns, symbols, styles, and tool-creation services.
+- `Svg.Editor.Skia` carries the editing math and overlay rendering.
+- `Svg.Editor.Avalonia` carries reusable side panels, editor views, and dialog abstractions.
+- `Svg.Editor.Skia.Avalonia` composes the full interactive editor workspace on top of the lower layers.
+
 ## Generated-code path
 
 - `Svg.CodeGen.Skia` generates C# from the picture model.
@@ -33,6 +41,11 @@ Svg.Skia is composed of several layers that can be used independently or togethe
 | `Avalonia.Svg.Skia` | Skia-backed Avalonia controls and resources |
 | `Avalonia.Svg` | Avalonia drawing-stack controls and resources |
 | `Avalonia.Controls.Skia` | general-purpose Skia controls for Avalonia |
+| `Svg.Editor.Core` | editor session, settings, nodes, artboards, clipboard |
+| `Svg.Editor.Svg` | editor document mutation services and models |
+| `Svg.Editor.Skia` | editor selection, path editing, and overlay rendering |
+| `Svg.Editor.Avalonia` | reusable editor controls, dialogs, and views |
+| `Svg.Editor.Skia.Avalonia` | interactive editor surface and workspace |
 | `ShimSkiaSharp` | picture-recorder model used for command inspection and rebuild |
 | `Svg.SourceGenerator.Skia` | incremental generator surface |
 | `Svg.CodeGen.Skia` | direct code-generation helpers |
