@@ -4,7 +4,6 @@
         xmlns:controls="clr-namespace:Svg.Editor.Avalonia.Controls;assembly=Svg.Editor.Avalonia"
         x:Class="Svg.Editor.Skia.Avalonia.SvgEditorWorkspace"
         x:DataType="editor:SvgEditorWorkspace"
-        Width="800" Height="600"
         Focusable="True"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         DragDrop.AllowDrop="True">
