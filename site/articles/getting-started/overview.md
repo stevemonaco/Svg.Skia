@@ -15,6 +15,7 @@ Svg.Skia is a repository, not just a single package. The main entry points are:
 | `Svg.Controls.Skia.Avalonia` | You want Avalonia controls that render through the Skia-backed pipeline. | `Svg`, `SvgImage`, `SvgSource`, `SvgResource` | [Svg.Controls.Skia.Avalonia](../packages/svg-controls-skia-avalonia) |
 | `Svg.Controls.Avalonia` | You want Avalonia controls without depending on the Skia-backed Avalonia renderer path. | `Svg`, `SvgImage`, `SvgSource`, `SvgResource` | [Svg.Controls.Avalonia](../packages/svg-controls-avalonia) |
 | `Skia.Controls.Avalonia` | You need general-purpose `SKCanvas`, `SKPicture`, `SKBitmap`, or `SKPath` controls in Avalonia. | `SKCanvasControl`, `SKPictureImage`, and related controls | [Skia.Controls.Avalonia](../packages/skia-controls-avalonia) |
+| `Svg.Editor.*` | You want reusable SVG editor components, from session/services up to a full Avalonia workspace. | `SvgEditorSession`, editor services, panels, `SvgEditorWorkspace` | [Editor](../editor) |
 | `Svg.CodeGen.Skia` | You want to generate checked-in or pipeline-produced C# from the picture model. | C# source from `ShimSkiaSharp.SKPicture` | [Svg.CodeGen.Skia](../packages/svg-codegen-skia) |
 | `Svg.SourceGenerator.Skia` | You want compile-time generated `SKPicture` classes from `.svg` assets. | generated `*.svg.cs` files | [Svg.SourceGenerator.Skia](../packages/svg-sourcegenerator-skia) |
 | `svgc` sample tool | You want to generate C# source from SVG files outside Roslyn source generators. | C# files on disk | [Source Generator and svgc](../guides/source-generator-and-svgc) |
@@ -31,6 +32,12 @@ Start with `Svg.Skia` if your application already uses SkiaSharp or needs direct
 Start with `Svg.Controls.Skia.Avalonia` when the app is already on Avalonia plus Skia.
 
 Choose `Svg.Controls.Avalonia` when you want the same SVG concepts exposed through the Avalonia drawing stack instead.
+
+### Embedded editor
+
+Start with `Svg.Editor.Skia.Avalonia` when the target is an editable SVG workspace rather than a viewer-only control.
+
+Move down to the other `Svg.Editor.*` packages when the host needs only panels, dialogs, SVG mutation services, or low-level interaction helpers.
 
 ### Static asset generation
 

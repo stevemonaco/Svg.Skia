@@ -18,6 +18,7 @@ og_type: website
       <span class="svgskia-pill">SVG 1.1 subset</span>
       <span class="svgskia-pill">SKPicture output</span>
       <span class="svgskia-pill">Avalonia integration</span>
+      <span class="svgskia-pill">Editor packages</span>
       <span class="svgskia-pill">Build-time generation</span>
       <span class="svgskia-pill">VectorDrawable import</span>
     </div>
@@ -61,6 +62,10 @@ og_type: website
     <span class="svgskia-package-title"><i class="bi bi-filetype-cs" aria-hidden="true"></i> Generated Code</span>
     <p>Compile SVG assets into C# or source-generated pictures for static assets and AOT-friendly workflows.</p>
   </a>
+  <a class="svgskia-package-card" href="articles/packages/svg-editor-skia-avalonia">
+    <span class="svgskia-package-title"><i class="bi bi-pencil-square" aria-hidden="true"></i> Editor Packages</span>
+    <p>Reusable editor state, SVG mutation services, Avalonia panels, and a full interactive workspace extracted from AvalonDraw.</p>
+  </a>
   <a class="svgskia-package-card" href="articles/guides/cli-conversion">
     <span class="svgskia-package-title"><i class="bi bi-terminal" aria-hidden="true"></i> Tooling</span>
     <p>Batch-convert SVG and VectorDrawable input into png, jpg, webp, pdf, xps, or raw generated code.</p>
@@ -77,6 +82,10 @@ og_type: website
   <a class="svgskia-link-card" href="articles/concepts">
     <span class="svgskia-link-card-title"><i class="bi bi-diagram-3" aria-hidden="true"></i> Concepts</span>
     <p>Understand the package layout, asset pipeline, picture model, and rebuild workflow.</p>
+  </a>
+  <a class="svgskia-link-card" href="articles/editor">
+    <span class="svgskia-link-card-title"><i class="bi bi-layout-three-columns" aria-hidden="true"></i> Editor</span>
+    <p>Embed the extracted AvalonDraw editor packages as a full workspace or as lower-level reusable components.</p>
   </a>
   <a class="svgskia-link-card" href="articles/guides">
     <span class="svgskia-link-card-title"><i class="bi bi-journal-code" aria-hidden="true"></i> Guides</span>
@@ -105,4 +114,5 @@ og_type: website
 - Use [Getting Started Overview](articles/getting-started/overview) if you are choosing between the core renderer, the Avalonia packages, and the CLI.
 - Use [Quickstart: Loading and Rendering](articles/getting-started/quickstart-loading-and-rendering) when you want a minimal `SKSvg` example first.
 - Use [XAML Overview](articles/xaml/overview) when the target app is Avalonia.
+- Use [Editor Overview](articles/editor) when you want the reusable `Svg.Editor.*` package stack.
 - Use [API Coverage Index](articles/reference/api-coverage-index) when you want to know which assemblies are included in generated docs.
