@@ -79,13 +79,20 @@ with api.dotnet
         { name: "Svg.Controls.Avalonia", path: "../src/Svg.Controls.Avalonia/Svg.Controls.Avalonia.csproj" },
         { name: "Svg.Controls.Skia.Avalonia", path: "../src/Svg.Controls.Skia.Avalonia/Svg.Controls.Skia.Avalonia.csproj" },
         { name: "Skia.Controls.Avalonia", path: "../src/Skia.Controls.Avalonia/Skia.Controls.Avalonia.csproj" },
+        { name: "Svg.Editor.Core", path: "../src/Svg.Editor.Core/Svg.Editor.Core.csproj" },
+        { name: "Svg.Editor.Svg", path: "../src/Svg.Editor.Svg/Svg.Editor.Svg.csproj" },
+        { name: "Svg.Editor.Skia", path: "../src/Svg.Editor.Skia/Svg.Editor.Skia.csproj" },
+        { name: "Svg.Editor.Avalonia", path: "../src/Svg.Editor.Avalonia/Svg.Editor.Avalonia.csproj" },
+        { name: "Svg.Editor.Skia.Avalonia", path: "../src/Svg.Editor.Skia.Avalonia/Svg.Editor.Skia.Avalonia.csproj" },
         { name: "ShimSkiaSharp", path: "../src/ShimSkiaSharp/ShimSkiaSharp.csproj" },
         { name: "Svg.SourceGenerator.Skia", path: "../src/Svg.SourceGenerator.Skia/Svg.SourceGenerator.Skia.csproj" }
     ]
     external_apis = [
         { assembly: "Avalonia", url: "https://api-docs.avaloniaui.net/docs" },
         { assembly: "Avalonia.Base", url: "https://api-docs.avaloniaui.net/docs" },
+        { assembly: "Avalonia.Controls.ColorPicker", url: "https://api-docs.avaloniaui.net/docs" },
         { assembly: "Avalonia.Controls", url: "https://api-docs.avaloniaui.net/docs" },
+        { assembly: "Avalonia.Controls.DataGrid", url: "https://api-docs.avaloniaui.net/docs" },
         { assembly: "Avalonia.DesignerSupport", url: "https://api-docs.avaloniaui.net/docs" },
         { assembly: "Avalonia.Dialogs", url: "https://api-docs.avaloniaui.net/docs" },
         { assembly: "Avalonia.Markup", url: "https://api-docs.avaloniaui.net/docs" },
