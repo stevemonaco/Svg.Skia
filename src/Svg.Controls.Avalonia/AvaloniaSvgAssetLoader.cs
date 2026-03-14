@@ -95,7 +95,7 @@ public class AvaloniaSvgAssetLoader : SM.ISvgAssetLoader
                             typeface.Style.ToSKFontStyle()
                         )));
         }
-
+        
         for (; i < text.Length; i++)
         {
             var codepoint = char.ConvertToUtf32(text, i);
@@ -115,7 +115,9 @@ public class AvaloniaSvgAssetLoader : SM.ISvgAssetLoader
             }
 
             var glyphTypeface = (typeface ?? Typeface.Default).GlyphTypeface;
-            runningAdvance += glyphTypeface.GetGlyphAdvance(glyphTypeface.GetGlyph((uint)codepoint));
+            var map = glyphTypeface.CharacterToGlyphMap;
+            glyphTypeface.TryGetHorizontalGlyphAdvance(map.GetGlyph(codepoint), out var advance);
+            runningAdvance += advance;
 
             if (char.IsHighSurrogate(text[i]))
             {
@@ -155,11 +157,16 @@ public class AvaloniaSvgAssetLoader : SM.ISvgAssetLoader
 
         var typeface = paint.Typeface.ToTypeface() ?? Typeface.Default;
         var glyphTypeface = typeface.GlyphTypeface;
+        var map = glyphTypeface.CharacterToGlyphMap;
+        
+        
         float advance = 0f;
         for (int i = 0; i < text.Length; i++)
         {
             var codepoint = char.ConvertToUtf32(text, i);
-            advance += glyphTypeface.GetGlyphAdvance(glyphTypeface.GetGlyph((uint)codepoint));
+            glyphTypeface.TryGetHorizontalGlyphAdvance(map.GetGlyph(codepoint), out var glyphAdvance);
+            
+            advance += glyphAdvance;
             if (char.IsHighSurrogate(text[i]))
             {
                 i++;

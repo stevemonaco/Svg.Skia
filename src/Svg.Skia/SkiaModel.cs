@@ -4,7 +4,43 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using ShimSkiaSharp;
+using SkiaSharp;
 using Svg.Skia.TypefaceProviders;
+using SKBlendMode = ShimSkiaSharp.SKBlendMode;
+using SKClipOperation = ShimSkiaSharp.SKClipOperation;
+using SKColor = ShimSkiaSharp.SKColor;
+using SKColorChannel = ShimSkiaSharp.SKColorChannel;
+using SKColorF = ShimSkiaSharp.SKColorF;
+using SKColorFilter = ShimSkiaSharp.SKColorFilter;
+using SKColorSpace = ShimSkiaSharp.SKColorSpace;
+using SKFilterQuality = ShimSkiaSharp.SKFilterQuality;
+using SKFontStyleSlant = ShimSkiaSharp.SKFontStyleSlant;
+using SKFontStyleWeight = ShimSkiaSharp.SKFontStyleWeight;
+using SKFontStyleWidth = ShimSkiaSharp.SKFontStyleWidth;
+using SKImage = ShimSkiaSharp.SKImage;
+using SKImageFilter = ShimSkiaSharp.SKImageFilter;
+using SKMatrix = ShimSkiaSharp.SKMatrix;
+using SKPaint = ShimSkiaSharp.SKPaint;
+using SKPaintStyle = ShimSkiaSharp.SKPaintStyle;
+using SKPath = ShimSkiaSharp.SKPath;
+using SKPathArcSize = ShimSkiaSharp.SKPathArcSize;
+using SKPathDirection = ShimSkiaSharp.SKPathDirection;
+using SKPathEffect = ShimSkiaSharp.SKPathEffect;
+using SKPathFillType = ShimSkiaSharp.SKPathFillType;
+using SKPicture = ShimSkiaSharp.SKPicture;
+using SKPoint = ShimSkiaSharp.SKPoint;
+using SKPoint3 = ShimSkiaSharp.SKPoint3;
+using SKPointI = ShimSkiaSharp.SKPointI;
+using SKRect = ShimSkiaSharp.SKRect;
+using SKShader = ShimSkiaSharp.SKShader;
+using SKShaderTileMode = ShimSkiaSharp.SKShaderTileMode;
+using SKSize = ShimSkiaSharp.SKSize;
+using SKSizeI = ShimSkiaSharp.SKSizeI;
+using SKStrokeCap = ShimSkiaSharp.SKStrokeCap;
+using SKStrokeJoin = ShimSkiaSharp.SKStrokeJoin;
+using SKTextAlign = ShimSkiaSharp.SKTextAlign;
+using SKTextEncoding = ShimSkiaSharp.SKTextEncoding;
+using SKTypeface = ShimSkiaSharp.SKTypeface;
 
 namespace Svg.Skia;
 
@@ -882,7 +918,7 @@ public partial class SkiaModel
                         ToSKImage(imageImageFilter.Image),
                         ToSKRect(imageImageFilter.Src),
                         ToSKRect(imageImageFilter.Dst),
-                        SkiaSharp.SKFilterQuality.High);
+                        new SKSamplingOptions(SKCubicResampler.Mitchell));
                 }
             case MatrixConvolutionImageFilter matrixConvolutionImageFilter:
                 {
